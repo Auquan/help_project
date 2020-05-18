@@ -10,8 +10,8 @@ If you would like to be a part of this undertaking, project details and registra
   * [H.E.L.P. Project Slack](https://join.slack.com/t/the-help-project/shared_invite/zt-ebvwz2np-SXVW6tJ20ayX4gQqRFQZRA) for all the discussion around the project and collaboration.
 
 ## How do I contribute?
-Please go through the project details to decide the appropriate team for you to contribute to. Then simply sign up for the specific team on the project page [here](https://quant-quest.com/landingPage/helpproject) and join us in [slack.]((https://join.slack.com/t/the-help-project/shared_invite/zt-ebvwz2np-SXVW6tJ20ayX4gQqRFQZRA)
+Please go through the project details to decide the appropriate team for you to contribute to. Then simply sign up for the specific team on the project page [here](https://quant-quest.com/landingPage/helpproject) and join us in [slack.](https://join.slack.com/t/the-help-project/shared_invite/zt-ebvwz2np-SXVW6tJ20ayX4gQqRFQZRA)
 
 You will then be placed in the team of your choosing and you can start making contributions.
 
-Before making pull requests and engaging in discussions on this respository ensure you have gone through [contribution guidelines](https://github.com/Auquan/help_project/blob/staging/CODE_OF_CONDUCT.md) and [code of conduct](https://github.com/Auquan/help_project/blob/staging/CONTRIBUTING.md)
+Before making pull requests and engaging in discussions on this respository ensure you have gone through [contribution guidelines](https://github.com/Auquan/help_project/blob/staging/CONTRIBUTING.md) and [code of conduct](https://github.com/Auquan/help_project/blob/staging/CODE_OF_CONDUCT.md)
