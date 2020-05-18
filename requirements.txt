@@ -1,0 +1,5 @@
+-r ./src/disease_model/requirements.txt
+-r ./src/economic_model/requirements.txt
+pylint
+pytest
+git-pylint-commit-hook
