@@ -1,12 +1,10 @@
+_asset_bundler_cache
 _site
 .DS_Store
-.jekyll
 .jekyll-metadata
-.bundle
 .sass-cache
-Gemfile
+*.sublime-project
+*.sublime-workspace
+codekit-config.json
 Gemfile.lock
 node_modules
-package.json
-.pytest_cache
-__pycache__
