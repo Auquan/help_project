@@ -1,7 +1,0 @@
--r ./src/disease_model/requirements.txt
--r ./src/economic_model/requirements.txt
--r ./src/optimization/requirements.txt
--r ./src/exitstrategies/requirements.txt
-pylint
-pytest
-git-pylint-commit-hook
