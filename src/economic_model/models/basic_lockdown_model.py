@@ -2,7 +2,7 @@
 This defines a very basic economic model, this is going to change in the future
 """
 
-from src.economic_model.utils.gva_data import BaseGVA
+from help_project.src.economic_model.utils.gva_data import BaseGVA
 
 
 class EconomicLockdownModel():
@@ -14,6 +14,7 @@ class EconomicLockdownModel():
 
     def __init__(self, country=None, lockdown_vector=None):
         self.country = country
+        self.lockdown_vector = lockdown_vector
 
     def get_economic_vector(self):
         """

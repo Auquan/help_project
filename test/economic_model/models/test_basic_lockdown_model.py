@@ -2,20 +2,16 @@
 Test economic model
 """
 
-from src.economic_model.models.basic_lockdown_model import EconomicLockdownModel
+from help_project.src.economic_model.models.basic_lockdown_model import EconomicLockdownModel
 
 
 def test_economic_model():
     """
     test for economic_model
     """
-    lockdown_output = False
+    economic_output = False
+    economic_vector = EconomicLockdownModel().get_economic_vector()
+    if len(economic_vector.keys()) > 0:
+        economic_output = True
 
-    try:
-        economic_vector = EconomicLockdownModel().get_economic_vector()
-        if len(economic_vector.keys()) > 0:
-            lockdown_output = True
-    except Exception as excep:
-        print("economic model not working:\n", excep)
-
-    assert lockdown_output
+    assert economic_output
