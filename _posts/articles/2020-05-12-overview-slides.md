@@ -6,7 +6,8 @@ Excerpt: "A short set of slides that outline how the HELP project's aims and how
 tags: []
 image:
   feature:
-  teaser:articles/slides.png
+  teaser: articles/slides.png
+  
 ---
 
 If the embed below doesn't work, [please click here to see the slides in google docs.](https://drive.google.com/file/d/1kgj6Si2ms77-7M7WdaBMXnZnKE23ynHu/preview)
