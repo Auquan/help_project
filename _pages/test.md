@@ -1,3 +1,6 @@
+---
+permalink: /test/
+---
 #TEST
 
 test
