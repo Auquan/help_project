@@ -5,6 +5,15 @@ image:
   feature: hero_bg.jpeg
 ---
 
+## Details
+Our fight against COVID19 is far from over. While we didn’t have much choice in the first part of the crisis, we can plan and prepare now. How we and our governments deal with the second part will affect what our day to day life will be like for the next decade. How we live and how we work.
+
+We are combining domain expertise in health, economics and public policy with machine learning to help find the optimal exit strategy - the one that doesn’t choose between saving lives OR the economy, it saves lives AND the economy.
+[See some overview slides here](https://links.quant-quest.com/HELPSlides)
+
+[**See our working whitepaper here**](https://docs.google.com/document/d/1OgCIZ0NGZP8XELOI6niWxY-rHIh5h2gh2w3U5TOHyOU)
+
+
 <div class="tiles">
 
 <div class="tile">
