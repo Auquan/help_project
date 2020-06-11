@@ -6,9 +6,9 @@ image:
   feature: hero_bg.jpeg
 ---
   
-Our fight against COVID19 is far from over. While we didn’t have much choice in the first part of the crisis, we can plan and prepare now. How we and our governments deal with the second part will affect what our day to day life will be like for the next decade. How we live and how we work.
+Our fight against COVID19 is far from over. How we and our governments deal with the crisis from now will affect what our day to day life will be like for the next decade.
 
-We are combining domain expertise in health, economics and public policy with machine learning to help find the optimal exit strategy - the one that doesn’t choose between saving lives OR the economy, it saves lives AND the economy.
+We are combining domain expertise in health, economics and public policy with machine learning to help find the optimal exit strategies - the one that doesn’t choose between saving lives OR the economy, it saves lives AND the economy.
 
 [See some overview slides here](https://links.quant-quest.com/HELPSlides)
 
@@ -57,7 +57,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 ## Patners & Collaborators
 
-{instert partner images here}
+{insert partner images here}
 
 - [Auquan](https://auquan.com)
 - [Como Consortium](https://www.medsci.ox.ac.uk/news/como-consortium-the-covid-19-pandemic-modelling-in-context)
