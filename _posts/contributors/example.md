@@ -3,7 +3,7 @@
 ---
 layout: media
 title: "[Insert your name]"
-categories: media
+categories: contributors
 excerpt: "[Insert your name]'s profile."
 image:
   feature: &image [add link to image] #your image should be uploaded to the images folder
