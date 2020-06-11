@@ -1,7 +1,7 @@
 ---
 layout: media
 title: "David Ardagh"
-categories: media
+categories: contributors
 excerpt: "David Ardagh profile."
 ads: false
 share: false
