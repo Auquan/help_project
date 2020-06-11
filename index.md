@@ -1,12 +1,10 @@
 ---
 layout: home
+title: Details
 permalink: /
 image:
   feature: hero_bg.jpeg
 ---
-
-
-## Details 
   
 Our fight against COVID19 is far from over. While we didn’t have much choice in the first part of the crisis, we can plan and prepare now. How we and our governments deal with the second part will affect what our day to day life will be like for the next decade. How we live and how we work.
 
@@ -20,7 +18,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 ---
 
-<div>
+<div class='notice-info'>
 <h2>How you can help</h2>
 <div class="tiles">
 
