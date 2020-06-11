@@ -3,19 +3,19 @@
 - title: Aims
   url: /aims/
   excerpt: "A short statement on what we believe and are working towards"
-  image: 400x250.gif
+  image: nav/aims.png
 
 - title: People
   url: /contributors/
   excerpt: "A list of people who've helped make this project what it is"
-  image: 400x250.gif
+  image: nav/people.png
 
 - title: Updates
   url: /updates/
   excerpt: "A collections of updates, progress and press"
-  image: 400x250.gif
+  image: nav/news.png
 
 - title: Get Involved
   url: /contact/
   excerpt: "Reach out to the team"
-  image: 400x250.gif
+  image: nav/join.png
