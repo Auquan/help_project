@@ -10,4 +10,5 @@ image:
 ---
 
 My Data Science Journey started 3 years ago. I have a crazy knack of doing Hackathons. I have won more than 25+ Product based & Data Science Hackathons. Currently, working full-time in the Data Science Team @ Société Générale.
+
 [LinkedIn](https://www.linkedin.com/in/salil-gautam)
