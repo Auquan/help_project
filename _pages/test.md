@@ -1,5 +1,6 @@
 ---
-permalink: /test/
+layout: page
+permalink: /test
 ---
 #TEST
 
