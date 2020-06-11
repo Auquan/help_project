@@ -12,6 +12,8 @@ image:
   feature:
   teaser:
   thumb:
+
+published: false
 ---
 
 For those of you who may have content written by multiple authors on your site you can assign different authors to each post if desired.
