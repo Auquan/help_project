@@ -1,0 +1,13 @@
+---
+layout: media
+title: "Shub Jain"
+categories: contributors
+excerpt: "Tech Stuff"
+image:
+  feature: &image shub_j.jpeg
+  path: *image
+  teaser: shub_j.jpeg
+---
+
+Software Engineer with a passion for solving problems using code. I have diverse experience working at a tech giant like Microsoft and a valley unicorn like Gusto. Runs a really good Puzzle Rush competition
+[Read More...](https://www.linkedin.com/in/shubj)
