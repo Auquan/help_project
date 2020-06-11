@@ -50,11 +50,14 @@ We are combining domain expertise in health, economics and public policy with ma
 
 </div><!-- /.tiles -->
 </div>
-
+   
+   
 ---
 
+   
 ## Optimally exiting lockdown is the greatest challenge of our generation.
 
 Join leading economists, health experts, policy makers, data scientists and developers in finding the best solution.
+
 [**Join them now**](https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit)
 
