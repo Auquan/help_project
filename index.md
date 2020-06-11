@@ -19,28 +19,33 @@ We are combining domain expertise in health, economics and public policy with ma
 
 ---
 
-## How you can help
-
 <div class="tiles dark">
 
+<h2>How you can help</h2>
+<p>&nbsp</p>
+
 <div class="tile">
-  <h2 class="post-title">Built for Jekyll 3</h2>
-  <p class="post-excerpt">Takes advantage of native Sass support and data files to make customizing your site easier.</p>
+  <h2 class="post-title">Economists</h2>
+  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs and develop a holistic cost function that can weigh health gains, economic losses and quality of life. Help your modelling team to implement your approach</p>
+  <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Content First</h2>
-  <p class="post-excerpt">Designed to put the focus on you and your writing. Headers, navigation, sidebars, and footers have been purposely deemphasized.</p>
+  <h2 class="post-title">Data Scientists</h2>
+  <p class="post-excerpt">Use your data and machine learning skills implement models created by economists and health experts. Create practical, forward looking forecasts by fitting models to real world datasets.</p>
+  <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Customizable</h2>
-  <p class="post-excerpt">Packed with layouts and modules. Include Disqus comments, social sharing buttons, and table of contents on one or all pages.</p>
+  <h2 class="post-title">Health Professionals</h2>
+  <p class="post-excerpt">Bring your expertise of disease modelling, epidemiology, public health or policy implementation to make sure the maths and modelling efforts captures the complete medical picture..</p>
+  <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Extensible</h2>
-  <p class="post-excerpt">Compatible with popular libraries like <a href="http://bourbon.io">Bourbon</a>, <a href="http://neat.bourbon.io/">Neat</a>, and <a href="http://github.com/octopress/octopress">Octopress</a> to help build and deploy your site with ease.</p>
+  <h2 class="post-title">Other</h2>
+  <p class="post-excerpt">There are many jobs for many backgrounds and skill levels. From collecting data to design work, awareness to copy writing, whatever your skills are, we will try and find a place you can help.</p>
+  <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
 </div><!-- /.tiles -->
