@@ -37,7 +37,7 @@ owner:
     ad-slot:
   disqus-shortname:
 
-
+include: ["_pages"]
 include:
   - .htaccess
 exclude:
