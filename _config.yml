@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: "Skinny Bones"
-description: "A lightweight site starter for Jekyll"
-logo: 120x120.gif
+title: "The HELP Project"
+description: "A Community Project to model the health and economic impacts of different lockdown exit strategies"
+logo: help_logo.png
 teaser: 400x250.gif
 locale: en_US
-url: "https://mmistakes.github.io/jekyll-theme-skinny-bones"
+url: "https://auquan.github.io/help_project"
 feed:
   path: atom.xml
 
@@ -26,15 +26,15 @@ plugins:
 
 # Site owner
 owner:
-  name: "Michael Rose"
-  web: "https://mademistakes.com"
-  twitter: "mmistakes"
-  bio: "Just another boring, tattooed, time traveling designer."
-  avatar: "bio-photo.jpg" # 160x160 px image for author byline
+  name: "HELP Project"
+  web: "https://auquan.com"
+  twitter: ""
+  bio: ""
+  avatar: "help_logo.png" # 160x160 px image for author byline
   google:
-    plus: "+MichaelRoseDesign"
-    ad-client: "ca-pub-7328585512091257"
-    ad-slot: 3049671934
+    plus: ""
+    ad-client: ""
+    ad-slot:
   disqus-shortname:
 
 
