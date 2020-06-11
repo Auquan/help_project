@@ -24,7 +24,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 <div class="tile notice">
   <h2 class="post-title">Economists</h2>
-  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs (and their removal!). Experience with statistical and agent based models for GDP forcasting would be a plus.<br /></p>
+  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs (and their removal!). Experience with statistical and agent based models for GDP forcasting would be a plus.<br /><br /></p>
   <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
