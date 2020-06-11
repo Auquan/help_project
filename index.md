@@ -18,9 +18,9 @@ We are combining domain expertise in health, economics and public policy with ma
 
 
 ---
-<div style='background-color:black'>
+<div class='dark'>
 <h2>How you can help</h2>
-<div class="tiles dark">
+<div class="tiles">
 
 <div class="tile">
   <h2 class="post-title">Economists</h2>
