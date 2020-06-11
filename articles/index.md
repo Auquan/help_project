@@ -1,9 +1,10 @@
 ---
 layout: archive
-title: "Articles"
+title: "Updates"
 date: 2014-05-30T11:39:03-04:00
+permalink: /updates/
 modified:
-excerpt: "A collection of thoughts, inspiration, mistakes, and other minutia."
+excerpt: "A list of content including press releases, blog posts and explainers"
 tags: []
 image:
   feature:
