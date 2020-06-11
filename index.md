@@ -18,13 +18,13 @@ We are combining domain expertise in health, economics and public policy with ma
 
 ---
 
-<div class='notice-info'>
+<div>
 <h2>How you can help</h2>
-<div class="tiles notice-info">
+<div class="tiles">
 
 <div class="tile notice-info">
   <h2 class="post-title">Economists</h2>
-  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs and develop a holistic cost function that can weigh health gains, economic losses and quality of life. </p>
+  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs and develop a holistic cost function that can weigh health gains, economic losses and quality of life. Experience with statistical and agent based models for GDP forcasting would be a plus </p>
   <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
