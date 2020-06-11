@@ -19,7 +19,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 ---
 
-<div class="tiles dark">
+<div class="tiles dark" style='background-color:black'>
 
 <h2>How you can help</h2>
 <p>&nbsp</p>
