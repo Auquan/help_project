@@ -2,7 +2,7 @@
 layout: media
 title: "David Ardagh"
 categories: contributors
-excerpt: "David Ardagh profile."
+excerpt: "Project Manager"
 ads: false
 share: false
 image:
