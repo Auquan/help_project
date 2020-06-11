@@ -1,16 +1,16 @@
 # Site navigation links
 
-- title: Our Aims
+- title: Aims
   url: /aims/
   excerpt: "A short statement on what we believe and are working towards"
   image: 400x250.gif
 
-- title: Our People
+- title: People
   url: /contributors/
   excerpt: "A list of people who've helped make this project what it is"
   image: 400x250.gif
 
-- title: Our Updates
+- title: Updates
   url: /updates/
   excerpt: "A collections of updates, progress and press"
   image: 400x250.gif
