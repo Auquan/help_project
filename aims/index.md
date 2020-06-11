@@ -12,6 +12,7 @@ image:
 
 The HELP Project is an open source, community initative to provide decision makers with information & recommendations on the combined health and economic impact of different lockdown exit strategies.
 <br />
+<br />
 
 ## Our Commitment
 
