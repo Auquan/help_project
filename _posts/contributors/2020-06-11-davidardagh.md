@@ -12,5 +12,8 @@ image:
 
 ---
 
-I'm the head of users at Auquan where I look after our data science competition platform QuantQuest. Before I started working in Tech, I originally went to medical school so I'm really excited to be working on this project.
+In my day job I'm the head of users at Auquan where I look after our data science competition platform QuantQuest. 
+
+I originally went to medical school so I'm really excited to be working on this project. It is amazing to see how people have come together to help others accross the globe.
+
 [See my Linkedin Profile](https://www.linkedin.com/in/davidardagh)
