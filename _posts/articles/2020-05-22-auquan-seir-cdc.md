@@ -4,7 +4,7 @@ title: 'Auquan's SEIR Model Added To The CDC's Ensemble Model'
 categories: articles
 tags: []
 image:
-  feature:articles/cdc_model.jpg
+  feature: articles/cdc_model.jpg
   teaser: articles/cdc_auquan.png
   
 ---
