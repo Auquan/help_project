@@ -18,11 +18,9 @@ We are combining domain expertise in health, economics and public policy with ma
 
 
 ---
-
-<div class="tiles dark" style='background-color:black'>
-
+<div style='background-color:black'>
 <h2>How you can help</h2>
-<p>&nbsp</p>
+<div class="tiles dark">
 
 <div class="tile">
   <h2 class="post-title">Economists</h2>
@@ -49,7 +47,7 @@ We are combining domain expertise in health, economics and public policy with ma
 </div><!-- /.tile -->
 
 </div><!-- /.tiles -->
-
+</div>
 ---
 
 ## Optimally exiting lockdown is the greatest challenge of our generation.
