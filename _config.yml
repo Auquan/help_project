@@ -10,7 +10,6 @@ feed:
   path: atom.xml
 
 # Jekyll configuration
-
 sass:
   sass_dir: _sass
   style: compressed
@@ -23,6 +22,19 @@ plugins:
   - jekyll-gist
   - jekyll-feed
 
+#Post Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: true
+      share: true
+      related: false
 
 # Site owner
 owner:
