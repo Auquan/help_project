@@ -6,7 +6,7 @@ excerpt: "David Ardagh profile."
 ads: false
 share: false
 image:
-  feature: &image david_a.jfif
+  feature: &image david_a.png
   path: *image
   teaser: david_a.jfif
 
