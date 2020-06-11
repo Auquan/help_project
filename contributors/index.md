@@ -11,7 +11,7 @@ image:
 ---
 
 <div class="tiles">
-{% for post in site.contributors %}
+{% for post in  site.categories.contributors %}
   {% include post-grid.html %}
 {% endfor %}
 </div><!-- /.tiles -->
