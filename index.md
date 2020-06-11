@@ -59,10 +59,11 @@ We are combining domain expertise in health, economics and public policy with ma
 
 {instert partner images here}
 
-- Auquan
-- Como Collective
-- NDM Oxford
+- [Auquan](https://auquan.com)
+- [Como Consortium](https://www.medsci.ox.ac.uk/news/como-consortium-the-covid-19-pandemic-modelling-in-context)
+- [NDM Oxford](https://www.ndm.ox.ac.uk/home)
 - Pandemic Action Network
+- [QuantQuest](https://www.quant-quest.com)
 
 
  <br />
