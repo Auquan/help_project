@@ -2,7 +2,7 @@
 layout: article
 title: "The HELP Project Whitepaper"
 categories: articles
-excerpt: The original whitepaper produced by Auquan, edited by HELP team members
+excerpt: "The original whitepaper produced by Auquan, edited by HELP team members"
 tags: []
 ads: false
 ---
