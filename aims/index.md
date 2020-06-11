@@ -11,6 +11,7 @@ image:
 ---
 
 The HELP Project is an open source, community initative to provide decision makers with information & recommendations on the combined health and economic impact of different lockdown exit strategies.
+<br />
 
 ## Our Commitment
 
@@ -20,7 +21,7 @@ The HELP Project is an open source, community initative to provide decision make
 
 3. Publish regular and pragmatic analysis delivered by teams of data science and machine learning specialists. The world is moving fast and so should we.
 
-
+<br />
 
 ## What this means in practice
 
@@ -29,3 +30,5 @@ The HELP Project is an open source, community initative to provide decision make
 2. Organise working groups around key themes with subject experts guiding modelling teams 
 
 3. Maintain transparency and accountability by releasing analysis and models as open source and visible to all
+
+<br />
