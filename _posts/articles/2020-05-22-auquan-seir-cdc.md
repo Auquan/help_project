@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "Auquans SEIR Model Added To The CDC's Ensemble Model"
+title: "Auquan SEIR Model Added To The CDC's Ensemble Model"
 categories: articles
 excerpt: "Auquan's modified SEIR model has now been including in the CDC repo and will be used to generate the CDC's predictions"
 tags: []
