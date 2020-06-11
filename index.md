@@ -20,7 +20,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 <div class='notice-info'>
 <h2>How you can help</h2>
-<div class="tiles">
+<div class="tiles notice-info">
 
 <div class="tile">
   <h2 class="post-title">Economists</h2>
