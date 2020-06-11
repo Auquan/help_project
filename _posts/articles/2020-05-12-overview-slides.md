@@ -2,7 +2,7 @@
 layout: article
 categories: articles
 Title: Overview Slides
-Excerpt: A short set of slides that outline how the HELP project's aims and how it will run
+Excerpt: "A short set of slides that outline how the HELP project's aims and how it will run"
 tags: []
 author: HELP Project
 ---
