@@ -12,6 +12,5 @@ image:
 
 ---
 
-# David Aradgh
-Something cool written about me
-[Read More](https://www.linkedin.com/in/davidardagh)
+I'm the head of users at Auquan where I look after our data science competition platform QuantQuest. Before I started working in Tech, I originally went to medical school so I'm really excited to be working on this project.
+[See my Linkedin Profile](https://www.linkedin.com/in/davidardagh)
