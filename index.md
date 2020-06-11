@@ -14,7 +14,8 @@ We are combining domain expertise in health, economics and public policy with ma
 
 [**See our working whitepaper here**](https://docs.google.com/document/d/1OgCIZ0NGZP8XELOI6niWxY-rHIh5h2gh2w3U5TOHyOU)
 
-
+<br />
+<br />
 
 ---
 
@@ -24,7 +25,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 <div class="tile notice">
   <h2 class="post-title">Economists</h2>
-  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs. Experience with statistical and agent based models for GDP forcasting would be a plus </p>
+  <p class="post-excerpt">Apply your expertise to quantify economic impact of NPIs (and their removal!). Experience with statistical and agent based models for GDP forcasting would be a plus.</p>
   <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
@@ -47,6 +48,7 @@ We are combining domain expertise in health, economics and public policy with ma
 </div><!-- /.tile -->
 
 </div><!-- /.tiles -->
+<br /><br />
 </div>
 
 
@@ -61,7 +63,7 @@ We are combining domain expertise in health, economics and public policy with ma
 - Como Collective
 - NDM Oxford
 - Pandemic Action Network
-
+ <br /><br />
 ---
 
 
