@@ -1,4 +1,4 @@
-[Copy this page for you and change sections in square brackets]
+[Copy this page for you and change sections in square brackets - remove this line]
 
 ---
 layout: media
