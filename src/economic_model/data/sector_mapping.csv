@@ -1,0 +1,25 @@
+lockdown_sector,sector
+agriculture,
+chemical,Manufacturing
+commerce,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
+construction,Construction
+education,Other services
+fin_prof_services,"Financial, Real Estate and Professional Services"
+food_consumables,
+healthcare,Other services
+hospitality_tourism,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
+manufacturing,Manufacturing
+mining,Mining and quarrying
+media,Other services
+energy,"Electricity, gas, water supply & other utility services"
+telecom,"Transport, storage, communication & services related to broadcasting"
+public_admin,"Public Administration Defence, and Other Services"
+supply_chain_ship,"Transport, storage, communication & services related to broadcasting"
+forest_husb_fish,
+textiles,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
+transportation ,"Transport, storage, communication & services related to broadcasting"
+utilities,"Electricity, gas, water supply & other utility services"
+open_border,"Transport, storage, communication & services related to broadcasting"
+air_travel,"Transport, storage, communication & services related to broadcasting"
+roal_rail_travel,"Transport, storage, communication & services related to broadcasting"
+public_transport,"Transport, storage, communication & services related to broadcasting"
