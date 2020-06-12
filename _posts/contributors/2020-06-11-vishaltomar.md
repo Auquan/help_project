@@ -4,9 +4,9 @@ title: "Vishal Tomar"
 categories: contributors
 excerpt: "Data Scientist"
 image:
-  feature: &image vishal_t.png
+  feature: &image contributors/vishal_t.png
   path: *image
-  teaser: vishal_t_sm.jfif
+  teaser: contributors/vishal_t_sm.png
   
 ---
 
