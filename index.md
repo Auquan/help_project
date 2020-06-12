@@ -42,7 +42,7 @@ We are combining domain expertise in health, economics and public policy with ma
 
 <div class="tile notice">
   <h2 class="post-title">Other</h2>
-  <p class="post-excerpt">There are many jobs for many backgrounds and skill levels. From collecting data to design work, awareness to copy writing, whatever your skills are, we will try and find a place you can help. <br /></p>
+  <p class="post-excerpt">There are many jobs for many backgrounds and skill levels. From collecting data to design work, awareness to copy writing, whatever your skills are, we will try and find a place you can help. <br /><br /></p>
   <a href='https://docs.google.com/forms/d/1letM0emPYKQ9KP0l37X1GlHO75gSyDwikMB1iVh-V0A/edit' target='_blank'>Sign Up Now</a>
 </div><!-- /.tile -->
 
