@@ -302,10 +302,18 @@
 }
 
 .hero{
-
 	height: 80vh;
-
+	position: relative;
 }
+.hero-content{
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
 // page header
 .page-feature {
 	@include fill-parent;
