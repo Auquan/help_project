@@ -6,9 +6,9 @@ excerpt: "Project Manager"
 ads: false
 share: false
 image:
-  feature: &image david_a.png
+  feature: &image contributors/david_a.png
   path: *image
-  teaser: david_a.jfif
+  teaser: contributors/david_a_sm.png
 
 ---
 
