@@ -1,9 +1,9 @@
 """
 This defines a very basic economic model, this is going to change in the future
 """
-
-from help_project.src.economic_model.utils import gva_data
 import numpy as np
+from help_project.src.economic_model.utils import gva_data
+
 
 class EconomicLockdownModel():
     """
@@ -29,15 +29,23 @@ class EconomicLockdownModel():
         mapping_dict = {}
         for i in range(len(sector_mappings)):
             if sector_mappings.iloc[i]['sector'] not in mapping_dict.keys():
-                mapping_dict[sector_mappings.iloc[i]['sector']] = [sector_mappings.iloc[i]['lockdown_sector']]
+                mapping_dict[sector_mappings.iloc[i]['sector']] = \
+                    [sector_mappings.iloc[i]['lockdown_sector']]
             else:
-                mapping_dict[sector_mappings.iloc[i]['sector']].append(sector_mappings.iloc[i]['lockdown_sector'])
+                mapping_dict[sector_mappings.iloc[i]['sector']].append(
+                    sector_mappings.iloc[i]['lockdown_sector'])
 
         baseline_gva = gva.get_gvas()
         adjusted_gva = {}
-        for key in sector_mappings.keys():
+        for key in mapping_dict.keys():
+            if key not in baseline_gva.keys():
+                continue
             weights = []
-            for sector in sector_mappings[key]:
-                weights.append(self.lockdown_vector[sector])
-            adjusted_gva[key]=baseline_gva[key]*np.mean(weights)
+            for sector in mapping_dict[key]:
+                if sector in self.lockdown_vector.keys():
+                    weights.append(self.lockdown_vector[sector])
+            if len(weights) > 0:
+                adjusted_gva[key] = baseline_gva[key] * np.mean(weights)
+            else:
+                adjusted_gva[key] = baseline_gva[key]
         return adjusted_gva
