@@ -7,4 +7,4 @@ install:
 # command to run tests
 script:
   - pylint -d C0301,W0511,C0111,R0201 src/ test/
-  - pytest
+  - pytest --runslow
