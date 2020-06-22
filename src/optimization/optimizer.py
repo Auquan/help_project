@@ -23,7 +23,7 @@ class Optimizer():
                 policy = self.propose()
 
                 health_output = health_model.run(policy)
-                economic_output = economic_model.run(policy)
+                economic_output = economic_model.get_economic_vector(policy)
 
                 loss = self.loss(health_output, economic_output)
                 self.record(policy, loss)

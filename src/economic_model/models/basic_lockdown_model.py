@@ -1,9 +1,11 @@
 """
 This defines a very basic economic model, this is going to change in the future
 """
+from typing import Dict
 import attr
 import numpy as np
 from help_project.src.economic_model.utils import gva_data
+from help_project.src.exitstrategies import lockdown_policy as lockdown
 
 
 class EconomicLockdownModel():
@@ -16,13 +18,7 @@ class EconomicLockdownModel():
     def __init__(self, country=None):
         self.country = country
 
-    def get_economic_vector(self, lockdown_policy):
-        """
-        get the economic vector for a country
-        """
-        # TODO
-        # use the lockdown vector while calculating new GVAs
-        # not using because of not sure of the structure right now
+    def _get_economic_vector_for_single_policy(self, lockdown_policy: lockdown.LockdownPolicy):
         lockdown_policy = attr.asdict(lockdown_policy)
         gva = gva_data.BaseGVA()
         sector_mappings = gva.get_sector_mapping()
@@ -50,3 +46,23 @@ class EconomicLockdownModel():
             else:
                 adjusted_gva[key] = baseline_gva[key]
         return adjusted_gva
+
+    def get_economic_vector(
+            self, lockdown_policy: lockdown.LockdownTimeSeries) -> Dict[str, float]:
+        """Compute the economic output of applying a given policy.
+
+        Args:
+            lockdown_policy: Time-series of policies to use.
+
+        Returns:
+            A dictionary containing adjusted GVA for different sectors.
+        """
+        output = {}
+        for policy_application in lockdown_policy.policies:
+            policy_output = self._get_economic_vector_for_single_policy(
+                policy_application.policy)
+            for key, value in policy_output.items():
+                if key not in output:
+                    output[key] = 0
+                output[key] = value / 365 / 4 * len(policy_application)
+        return output

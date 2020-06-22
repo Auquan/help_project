@@ -1,6 +1,6 @@
 """Test for ensemble model module."""
-import pytest
 from unittest import mock
+import pytest
 import numpy as np
 
 from help_project.src.disease_model import base_model
