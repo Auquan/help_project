@@ -23,15 +23,3 @@ class HealthData:  # pylint: disable=too-few-public-methods
         return HealthData(confirmed_cases=self.confirmed_cases[key],
                           recovered=self.recovered[key],
                           deaths=self.deaths[key])
-
-
-@attr.s
-class PolicyData:  # pylint: disable=too-few-public-methods
-    """Struct for holding a time-series of policy data."""
-    lockdown = attr.ib()
-
-    def __len__(self):
-        return len(self.lockdown)
-
-    def __getitem__(self, key):
-        return PolicyData(lockdown=self.lockdown[key])

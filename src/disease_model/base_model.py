@@ -5,6 +5,7 @@ from typing import Sequence
 from typing import Union
 
 from help_project.src.disease_model import data
+from help_project.src.exitstrategies import lockdown_policy
 
 
 class BaseDiseaseModel:
@@ -18,7 +19,7 @@ class BaseDiseaseModel:
     def fit(self,
             population_data: data.PopulationData,
             health_data: data.HealthData,
-            policy_data: data.PolicyData) -> bool:
+            policy_data: lockdown_policy.LockdownTimeSeries) -> bool:
         """Fit the model to the given data.
 
         Args:
@@ -49,8 +50,8 @@ class BaseDiseaseModel:
     def predict(self,
                 population_data: data.PopulationData,
                 past_health_data: data.HealthData,
-                future_policy_data: data.PolicyData,
-                use_cached_mapper: bool) -> data.HealthData:
+                future_policy_data: lockdown_policy.LockdownTimeSeries
+                ) -> data.HealthData:
         """Get predictions.
 
         Args:

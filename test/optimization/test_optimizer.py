@@ -16,7 +16,7 @@ class MockHealthModel():
 
 class MockEconomicModel():
     """Mock economic model."""
-    def run(self, policy):
+    def get_economic_vector(self, policy):
         if policy['strategy'] == 1:
             return 5
         elif policy['strategy'] == 2:
