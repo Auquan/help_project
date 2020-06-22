@@ -1,6 +1,7 @@
 """
 This defines a very basic economic model, this is going to change in the future
 """
+import attr
 import numpy as np
 from help_project.src.economic_model.utils import gva_data
 
@@ -12,23 +13,23 @@ class EconomicLockdownModel():
     of a sector
     """
 
-    def __init__(self, country=None, lockdown_vector=None):
+    def __init__(self, country=None):
         self.country = country
-        self.lockdown_vector = lockdown_vector
 
-    def get_economic_vector(self):
+    def get_economic_vector(self, lockdown_policy):
         """
         get the economic vector for a country
         """
         # TODO
         # use the lockdown vector while calculating new GVAs
         # not using because of not sure of the structure right now
+        lockdown_policy = attr.asdict(lockdown_policy)
         gva = gva_data.BaseGVA()
         sector_mappings = gva.get_sector_mapping()
         sector_mappings = sector_mappings.dropna()
         mapping_dict = {}
         for i in range(len(sector_mappings)):
-            if sector_mappings.iloc[i]['sector'] not in mapping_dict.keys():
+            if sector_mappings.iloc[i]['sector'] not in mapping_dict:
                 mapping_dict[sector_mappings.iloc[i]['sector']] = \
                     [sector_mappings.iloc[i]['lockdown_sector']]
             else:
@@ -37,13 +38,13 @@ class EconomicLockdownModel():
 
         baseline_gva = gva.get_gvas()
         adjusted_gva = {}
-        for key in mapping_dict.keys():
-            if key not in baseline_gva.keys():
+        for key in mapping_dict:
+            if key not in baseline_gva:
                 continue
             weights = []
             for sector in mapping_dict[key]:
-                if sector in self.lockdown_vector.keys():
-                    weights.append(self.lockdown_vector[sector])
+                if sector in lockdown_policy:
+                    weights.append(lockdown_policy[sector])
             if len(weights) > 0:
                 adjusted_gva[key] = baseline_gva[key] * np.mean(weights)
             else:

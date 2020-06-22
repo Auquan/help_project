@@ -53,7 +53,7 @@ class EnsembleModel(base_model.BaseDiseaseModel):
         """
         predictions = [
             model.predict(
-                population_data, past_health_data, future_policy_data)
+                population_data, past_health_data, future_policy_data, use_cached_mapper)
             for model in self.models
         ]
         return data.HealthData(

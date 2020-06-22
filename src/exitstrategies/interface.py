@@ -13,23 +13,24 @@ class ExitStrategies():
                        "forest_husb_fish", "textiles", "transportation", "utilities"]
     # TODO: Update these
     focus_areas_soc = ["gathering_size", "open_border", "air_travel", "roal_rail_travel", "public_transport", "curfew",
-                       "ecommerce", "contact_tracing", "covid_testing"]
+                       "ecommerce", "events_allowed", "worship_allowed", "contact_tracing", "covid_testing"]
 
     def __init__(self):
         pass
 
     def get_exit_strategies(self):
-        data_elt = DataELT()
-        exit_strategies = data_elt.extract_data()
+        exit_strategies = DataELT.extract_attribute_data()
         # TODO: parameterize start_date, end_date, start_day (numerical day since day 1), end_day, format (df/array/map)
         return exit_strategies
 
-    def get_focus_areas(self):
-        focus_areas = self.focus_areas_eco.extend(self.focus_areas_soc)
-        return focus_areas
+    @classmethod
+    def get_focus_areas(cls):
+        return ExitStrategies.focus_areas_eco + ExitStrategies.focus_areas_soc
 
-    def get_focus_areas_eco(self):
-        return self.focus_areas_eco
+    @classmethod
+    def get_focus_areas_eco(cls):
+        return ExitStrategies.focus_areas_eco
 
-    def get_focus_areas_soc(self):
-        return self.focus_areas_soc
+    @classmethod
+    def get_focus_areas_soc(cls):
+        return ExitStrategies.focus_areas_soc

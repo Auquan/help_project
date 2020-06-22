@@ -66,14 +66,16 @@ class ExhaustiveSearch(Optimizer):
     def __init__(self, config, loss):
         super().__init__(config, loss)
         self.proposals = self.generate_proposals()
+        self.records = []
 
     def propose(self):
         """Get a new proposal."""
-        return next(self.proposals)
+        return lockdown_config.LockdownConfig.generate_lockdown_policy(
+            next(self.proposals))
 
     def record(self, proposal, loss):
         """Do nothing."""
-        return
+        self.records.append((proposal, loss))
 
     def generate_proposals(self):
         """Generator for proposals."""

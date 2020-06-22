@@ -171,7 +171,7 @@ class SIR(base_model.BaseDiseaseModel):
         prediction = integrate.solve_ivp(
             self.differential_equations,
             t_span=(0, forecast_length),
-            t_eval=np.arange(forecast_length),
+            t_eval=np.arange(1, forecast_length + 1),
             y0=(initial_susceptible,
                 initial_confirmed_cases,
                 initial_recovered,
