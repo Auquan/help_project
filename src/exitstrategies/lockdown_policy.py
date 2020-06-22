@@ -60,7 +60,8 @@ class LockdownPolicyApplication:  # pylint: disable=too-few-public-methods
     def __len__(self) -> int:
         if self.end is not None:
             return (self.end - self.start).days
-        raise ValueError('The given policy has no end date')
+        return 365  # Assume 1 year if end not set.
+        # raise ValueError('The given policy has no end date')
 
 
 @attr.s(frozen=True)
@@ -71,8 +72,15 @@ class LockdownTimeSeries:  # pylint: disable=too-few-public-methods
     def __len__(self) -> int:
         return sum(len(policy) for policy in self.policies)
 
-    def _date_with_offset(self, offset):
-        return self.policies[0].start + datetime.timedelta(days=offset)
+    @property
+    def start(self):
+        """Get the start of the time series."""
+        return self.policies[0].start if self.policies else None
+
+    @property
+    def end(self):
+        """Get the end of the time series."""
+        return self.policies[-1].end if self.policies else None
 
     def __getitem__(self, key):
         if not self.policies:
@@ -82,12 +90,8 @@ class LockdownTimeSeries:  # pylint: disable=too-few-public-methods
         if isinstance(key, slice):
             if key.step is not None:
                 raise IndexError('Slicing a lockdown time series does not support a step size.')
-            start = (self._date_with_offset(key.start)
-                     if isinstance(key.start, int)
-                     else key.start)
-            end = (self._date_with_offset(key.stop)
-                   if isinstance(key.stop, int)
-                   else key.stop)
+            start = self._standardize_index(key.start or self.start)
+            end = self._standardize_index(key.stop or self.end)
             policies_in_range = [
                 policy
                 for policy in self.policies
@@ -108,8 +112,17 @@ class LockdownTimeSeries:  # pylint: disable=too-few-public-methods
             key = self._date_with_offset(key)
 
         # Retrieve by date
-        print(key)
         for policy in self.policies:
             if policy.start <= key and (policy.end is None or policy.end > key):
                 return policy.policy
         raise IndexError('Given index not found in time series')
+
+    def _standardize_index(self, idx):
+        if isinstance(idx, int):
+            return self._date_with_offset(idx)
+        return idx
+
+    def _date_with_offset(self, offset):
+        if offset >= 0:
+            return self.policies[0].start + datetime.timedelta(days=offset)
+        return self.policies[-1].end - datetime.timedelta(days=-offset)

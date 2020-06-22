@@ -1,4 +1,5 @@
 """Test the sir module."""
+import pytest
 import numpy as np
 import pandas as pd
 
@@ -115,6 +116,7 @@ def test_predictions_match_policy_index():
         series_predictions.deaths.index, ['a', 'b', 'c'])
 
 
+@pytest.mark.slow
 def test_fit():
     """Test that the fit function obtains sensible params."""
     population_data = data.PopulationData(
