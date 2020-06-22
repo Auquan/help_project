@@ -35,7 +35,7 @@ class SIR(base_model.BaseDiseaseModel):
                             bounds=[0, 1 / 2]),
         parameter.Parameter(name='mu',
                             description='Base mortality rate',
-                            bounds=[1 / 365 / 30, 1 / 365 / 90]),
+                            bounds=[1 / 365 / 90, 1 / 365 / 30]),
         parameter.Parameter(name='mu_i',
                             description='Infected mortality rate',
                             bounds=[1 / 30, 1 / 5]),
@@ -157,7 +157,7 @@ class SIR(base_model.BaseDiseaseModel):
                 population_data: data.PopulationData,
                 past_health_data: data.HealthData,
                 future_policy_data: lockdown_policy.LockdownTimeSeries
-            ) -> data.HealthData:
+                ) -> data.HealthData:
         """Get predictions.
 
         Args:

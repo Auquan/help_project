@@ -152,8 +152,8 @@
 #             health_data: data.HealthData,
 #             policy_data: lockdown_policy.LockdownTimeSeries) -> bool:
 #         for policy_application in policy_data.policies:
-            
-        
+
+
 
 #     def fit_(self,
 #              population_data: data.PopulationData,

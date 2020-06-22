@@ -2,13 +2,14 @@
 import datetime
 from typing import Optional
 from typing import Sequence
-from typing import Union
 import attr
 
 
 @attr.s(frozen=True)
-class LockdownPolicy:  # pylint: disable=too-few-public-methods
+class LockdownPolicy:
     """Struct for holding a parameter."""
+    # pylint: disable=too-few-public-methods
+    # pylint: disable=too-many-instance-attributes
     # TODO (Should we keep defaults here? They might hide errors)
 
     # Economic focus
