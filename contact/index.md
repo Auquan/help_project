@@ -16,24 +16,24 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 <br />
 
 <fieldset>
-	<form action= "https://webhook.site/c7562db4-5d3f-4505-8ee2-8917e496ff0e" method="POST">
+	<form id="contactForm" action= "https://webhook.site/c7562db4-5d3f-4505-8ee2-8917e496ff0e" method="POST">
 		<h2>Contact Form</h2>
 		<p>If you wish to get in contact with us, leave a message via the form below. Please fill in all the sections to help us get back to you as quickly as possible.</p>
 		<label for="text_field1">Name:</label>
-		<input type="text" id="text_field1" />
+		<input type="text" form="contactForm" type="name" name="name" id="text_field1" />
     <label for="text_field2">Email Address:</label>
-		<input type="text" id="text_field2" />    
+		<input type="text" form="contactForm" type="email" name="email" id="text_field2" />    
 		<p>
 			<label for="select_element">Which of these options best describes your request</label>
 			<select name="select_element">
-					<option value="1">General</option>
+					<option value="General">General</option>
 					<option value="2">Partnership</option>
 					<option value="3">Press</option>
           <option value="4">Sponsorship</option>
 			</select>
 		</p>
     	<label for="text_area">What is it you'd like to ask?:</label>
-		<textarea id="text_area"></textarea>
+		<textarea form="contactForm" type="query" name="query" id="text_area"></textarea>
 		<p>
 			<input class="btn" type="submit" value="Submit" />
 		</p>
