@@ -20,9 +20,9 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 		<h2>Contact Form</h2>
 		<p>If you wish to get in contact with us, leave a message via the form below. Please fill in all the sections to help us get back to you as quickly as possible.</p>
 		<label for="text_field1">Name:</label>
-		<input type="text" form="contactForm" type="name" name="name" id="text_field1" />
+		<input type="text" form="contactForm" id="name" name="name" id="text_field1" />
     <label for="text_field2">Email Address:</label>
-		<input type="text" form="contactForm" type="email" name="email" id="text_field2" />    
+		<input type="text" form="contactForm" id="email" name="email" id="text_field2" />    
 		<p>
 			<label for="select_element">Which of these options best describes your request</label>
 			<select name="select_element">
@@ -33,7 +33,7 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 			</select>
 		</p>
     	<label for="text_area">What is it you'd like to ask?:</label>
-		<textarea form="contactForm" type="query" name="query" id="text_area"></textarea>
+		<textarea form="contactForm" id="query" name="query" id="text_area"></textarea>
 		<p>
 			<input class="btn" type="submit" value="Submit" />
 		</p>
