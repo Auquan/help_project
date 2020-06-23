@@ -15,7 +15,6 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 
 <br />
 
-<!--
 <fieldset>
 	<form>
 		<h2>Contact Form</h2>
@@ -40,4 +39,3 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 		</p>
 	</form>
 </fieldset>
--->
