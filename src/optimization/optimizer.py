@@ -74,7 +74,7 @@ class ExhaustiveSearch(Optimizer):
             next(self.proposals))
 
     def record(self, proposal, loss):
-        """Do nothing."""
+        """Store result for the given proposal for possible later use."""
         self.records.append((proposal, loss))
 
     def generate_proposals(self):
