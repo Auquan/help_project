@@ -13,5 +13,5 @@ image:
 If the embed below doesn't work, [please click here to see the slides in google docs.](https://docs.google.com/presentation/d/1NgQ7r3w_EWCGmPVG6Bo0H0r24Y6f8-HpSPRnoO2uzjM/edit?usp=sharing)
 
 <div class="slide-container">
-<iframe class="slide-iframe" src="https://docs.google.com/presentation/d/1NgQ7r3w_EWCGmPVG6Bo0H0r24Y6f8-HpSPRnoO2uzjM"></iframe><!-- /.slide-iframe -->
+<iframe class="slide-iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vRblyy2EwzqVFWAVyGHV8A1OELN6tlZcMMfjGNu0mVAoCtuhLLWLYxm1uGo3SAbCeSef3dJHpmKQ9O0/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe><!-- /.slide-iframe -->
 </div> <!-- /.slide-container -->
