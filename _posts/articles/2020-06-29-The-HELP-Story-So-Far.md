@@ -18,7 +18,7 @@ The next big step for the project was joining the [COMO consortium](https://www.
 
 In an effort for transparency, the team has decided to open source all of the code produced and provide regular updates on the [website](https://www.help-corona.com). In the last couple of weeks we have released the V0 model, which uses simplified models to create a proof of concept of how the final model will work together. The overall process can be seen below:
 
-![Model Flow Diagram](/images/model_example)
+![Model Flow Diagram](/images/model_example.png)
 
 To view the V0 code, see the project's [Github repository](https://github.com/Auquan/help_project/).
 
