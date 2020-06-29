@@ -15,7 +15,7 @@ If you're looking to volunteer, please fill in [**this google form**](https://do
 
 <br />
 <fieldset>
-	<form id="contactUs" target="iframecus" action= "https://webhook.site/c7562db4-5d3f-4505-8ee2-8917e496ff0e" method="POST">
+	<form id="contactUs" target="iframecus" action= "https://wh.automate.io/webhook/5ef1ff86c91f9e302c0c1044" method="POST">
 		<h2>Contact Form</h2>
 		<p>If you wish to get in contact with us, leave a message via the form below. Please fill in all the sections to help us get back to you as quickly as possible.</p>
 		<label for="text_field1">Name:</label>
