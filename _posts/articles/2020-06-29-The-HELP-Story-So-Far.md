@@ -23,3 +23,8 @@ In an effort for transparency, the team has decided to open source all of the co
 To view the V0 code, see the project's [Github repository](https://github.com/Auquan/help_project/).
 
 The team is currently working towards the next iteration of the model that will be delivered in the coming two weeks. Improvements in this version will include:
+
+- The ability to apply more historical lockdown strategies
+- The ability to use the PyRoss health model as well as the AuquanSEIR model
+- Development work on an Agent based and a SAM based economic model
+- Improvement of the optimisation module and movement towards using WELBYs as an objective measure
