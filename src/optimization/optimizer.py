@@ -23,7 +23,7 @@ class Optimizer():
                 policy = self.propose()
 
                 health_output = health_model.run(policy)
-                economic_output = economic_model.run(policy)
+                economic_output = economic_model.get_economic_vector(policy)
 
                 loss = self.loss(health_output, economic_output)
                 self.record(policy, loss)
@@ -66,14 +66,16 @@ class ExhaustiveSearch(Optimizer):
     def __init__(self, config, loss):
         super().__init__(config, loss)
         self.proposals = self.generate_proposals()
+        self.records = []
 
     def propose(self):
         """Get a new proposal."""
-        return next(self.proposals)
+        return lockdown_config.LockdownConfig.generate_lockdown_policy(
+            next(self.proposals))
 
     def record(self, proposal, loss):
-        """Do nothing."""
-        return
+        """Store result for the given proposal for possible later use."""
+        self.records.append((proposal, loss))
 
     def generate_proposals(self):
         """Generator for proposals."""

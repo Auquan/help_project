@@ -8,6 +8,7 @@ from scipy import optimize
 from help_project.src.disease_model import base_model
 from help_project.src.disease_model import data
 from help_project.src.disease_model import parameter
+from help_project.src.exitstrategies import lockdown_policy
 
 
 class SIR(base_model.BaseDiseaseModel):
@@ -34,7 +35,7 @@ class SIR(base_model.BaseDiseaseModel):
                             bounds=[0, 1 / 2]),
         parameter.Parameter(name='mu',
                             description='Base mortality rate',
-                            bounds=[1 / 365 / 30, 1 / 365 / 90]),
+                            bounds=[1 / 365 / 90, 1 / 365 / 30]),
         parameter.Parameter(name='mu_i',
                             description='Infected mortality rate',
                             bounds=[1 / 30, 1 / 5]),
@@ -45,6 +46,7 @@ class SIR(base_model.BaseDiseaseModel):
 
     def __init__(self, parameter_config=None):
         super().__init__(parameter_config or SIR.DEFAULT_PARAMETER_CONFIG)
+        self.parameter_mapper = {}
 
     def differential_equations(
             self, _,
@@ -80,15 +82,13 @@ class SIR(base_model.BaseDiseaseModel):
     def residue(self,
                 params: Tuple[float, ...],
                 population_data: data.PopulationData,
-                health_data: data.HealthData,
-                policy_data: data.PolicyData):
+                health_data: data.HealthData):
         """Residue for a solution to the model.
 
         Args:
             params: The chosen params to try.
             population_data: Relevant data for the population of interest.
             health_data: Time-series of confirmed infections and deaths.
-            policy_data: Time-series of lockdown policy applied.
 
         Returns:
             Mean Square Error for the time series of the health data.
@@ -97,8 +97,8 @@ class SIR(base_model.BaseDiseaseModel):
         model.set_params(params)
         starting_health_data = health_data[[0]]
         expected_health_data = health_data[1:]
-        predictions = model.predict(
-            population_data, starting_health_data, policy_data[1:])
+        predictions = model.predict_with_current_params(
+            population_data, starting_health_data, len(health_data) - 1)
         deltas = [
             predictions.confirmed_cases - expected_health_data.confirmed_cases,
             predictions.recovered - expected_health_data.recovered,
@@ -109,7 +109,7 @@ class SIR(base_model.BaseDiseaseModel):
     def fit(self,
             population_data: data.PopulationData,
             health_data: data.HealthData,
-            policy_data: data.PolicyData) -> bool:
+            policy_data: lockdown_policy.LockdownTimeSeries) -> bool:
         """Fit the model to the given data.
 
         Args:
@@ -120,12 +120,31 @@ class SIR(base_model.BaseDiseaseModel):
         Returns:
             Whether the optimization was successful in finding a solution.
         """
+        for policy_application in policy_data.policies:
+            health_data_subset = health_data[policy_application.start:policy_application.end]
+            model = SIR(self.parameter_config)
+            # pylint: disable=protected-access
+            if model.fit_single_policy(population_data, health_data_subset):
+                self.parameter_mapper[policy_application.policy] = model.get_params()
+
+    def fit_single_policy(
+            self,
+            population_data: data.PopulationData,
+            health_data: data.HealthData) -> bool:
+        """Fit the model to the given data.
+
+        Args:
+            population_data: Relevant data for the population of interest.
+            health_data: Time-series of confirmed infections and deaths.
+
+        Returns:
+            Whether the optimization was successful in finding a solution.
+        """
         result = optimize.differential_evolution(
             self.residue,
             bounds=[param.bounds for param in self.parameter_config],
             args=(population_data,
-                  health_data,
-                  policy_data),
+                  health_data),
             workers=-1,
             updating='deferred',
         )
@@ -137,8 +156,8 @@ class SIR(base_model.BaseDiseaseModel):
     def predict(self,
                 population_data: data.PopulationData,
                 past_health_data: data.HealthData,
-                future_policy_data: data.PolicyData,
-                use_cached_mapper: bool = True) -> data.HealthData:
+                future_policy_data: lockdown_policy.LockdownTimeSeries
+                ) -> data.HealthData:
         """Get predictions.
 
         Args:
@@ -150,8 +169,54 @@ class SIR(base_model.BaseDiseaseModel):
             Predicted time-series of health data matching the length of the
             given policy.
         """
-        # Disable pycharm warning
-        # pylint: disable=too-many-locals
+        current_health_data = past_health_data
+        predictions = []
+        for policy_application in future_policy_data.policies:
+            params = self.parameter_mapper[policy_application.policy]
+            model = SIR(self.parameter_config)
+            model.set_params(params)
+            # pylint: disable=protected-access
+            next_health_data = model.predict_with_current_params(
+                population_data,
+                current_health_data,
+                forecast_length=len(policy_application),
+            )
+            predictions.append(next_health_data)
+            current_health_data = next_health_data
+
+        index = pd.date_range(
+            future_policy_data.start, future_policy_data.end, closed='left')
+        return data.HealthData(
+            confirmed_cases=pd.Series(
+                data=np.concatenate([p.confirmed_cases for p in predictions]),
+                index=index,
+            ),
+            recovered=pd.Series(
+                data=np.concatenate([p.recovered for p in predictions]),
+                index=index,
+            ),
+            deaths=pd.Series(
+                data=np.concatenate([p.deaths for p in predictions]),
+                index=index,
+            ),
+        )
+
+    def predict_with_current_params(
+            self,
+            population_data: data.PopulationData,
+            past_health_data: data.HealthData,
+            forecast_length: int) -> data.HealthData:
+        """Get predictions.
+
+        Args:
+            population_data: Relevant data for the population of interest.
+            past_health_data: Time-series of confirmed infections and deaths.
+            forecast_length: Length of the forecast to produce.
+
+        Returns:
+            Predicted time-series of health data matching the length of the
+            given policy.
+        """
         missing_params = [param.name for param in self.parameter_config
                           if param.name not in self.params]
         if missing_params:
@@ -159,23 +224,21 @@ class SIR(base_model.BaseDiseaseModel):
                 'Model params not set (%s). '
                 'Fit the model or set them manually' % missing_params)
 
-        initial_confirmed_cases = past_health_data.confirmed_cases[-1]
-        initial_recovered = past_health_data.recovered[-1]
-        initial_deaths = past_health_data.deaths[-1]
-
+        initial_health_data = past_health_data[-1]
         initial_susceptible = (
             population_data.population_size -
-            (initial_confirmed_cases + initial_recovered + initial_deaths))
+            initial_health_data.confirmed_cases -
+            initial_health_data.recovered -
+            initial_health_data.deaths)
 
-        forecast_length = len(future_policy_data.lockdown)
         prediction = integrate.solve_ivp(
             self.differential_equations,
             t_span=(0, forecast_length),
-            t_eval=np.arange(forecast_length),
+            t_eval=np.arange(1, forecast_length + 1),
             y0=(initial_susceptible,
-                initial_confirmed_cases,
-                initial_recovered,
-                initial_deaths),
+                initial_health_data.confirmed_cases,
+                initial_health_data.recovered,
+                initial_health_data.deaths),
             args=self.parameter_config.flatten(self.params))
 
         (_,
@@ -183,17 +246,6 @@ class SIR(base_model.BaseDiseaseModel):
          predicted_recovered,
          predicted_deaths) = prediction.y
 
-        if isinstance(future_policy_data.lockdown, pd.Series):
-            index = future_policy_data.lockdown.index
-            predicted_infected = pd.Series(
-                index=index,
-                data=predicted_infected)
-            predicted_recovered = pd.Series(
-                index=index,
-                data=predicted_recovered)
-            predicted_deaths = pd.Series(
-                index=index,
-                data=predicted_deaths)
         return data.HealthData(
             confirmed_cases=predicted_infected,
             recovered=predicted_recovered,
