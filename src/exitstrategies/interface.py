@@ -16,12 +16,16 @@ class ExitStrategies():
                        "ecommerce", "events_allowed", "worship_allowed", "contact_tracing", "covid_testing"]
 
     def __init__(self):
-        pass
+        self.strategies = DataELT.extract_attribute_data()
+        self.all_possible_strategies = list(set(
+            policy_application.policy
+            for policy_timeseries in self.strategies.values()
+            for policy_application in policy_timeseries.policies
+        ))
 
     def get_exit_strategies(self):
-        exit_strategies = DataELT.extract_attribute_data()
         # TODO: parameterize start_date, end_date, start_day (numerical day since day 1), end_day, format (df/array/map)
-        return exit_strategies
+        return self.strategies
 
     @classmethod
     def get_focus_areas(cls):

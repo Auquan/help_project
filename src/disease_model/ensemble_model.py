@@ -4,6 +4,7 @@ from typing import Sequence
 
 from help_project.src.disease_model import base_model
 from help_project.src.disease_model import data
+from help_project.src.disease_model.models import seir
 from help_project.src.disease_model.models import sir
 from help_project.src.exitstrategies import lockdown_policy
 
@@ -14,9 +15,8 @@ class EnsembleModel(base_model.BaseDiseaseModel):
     def __init__(
             self,
             models: Optional[Sequence[base_model.BaseDiseaseModel]] = None):
-        super().__init__()
         if not models:
-            models = [sir.SIR()]
+            models = [sir.SIR(), seir.SEIR()]
         self.models = list(models)
 
     def fit(self,
@@ -33,8 +33,8 @@ class EnsembleModel(base_model.BaseDiseaseModel):
         Returns:
             Whether the optimization was succesful for all models.
         """
-        return all(model.fit(population_data, health_data, policy_data)
-                   for model in self.models)
+        return all([model.fit(population_data, health_data, policy_data)
+                    for model in self.models])
 
     def predict(self,
                 population_data: data.PopulationData,
@@ -56,14 +56,4 @@ class EnsembleModel(base_model.BaseDiseaseModel):
                 population_data, past_health_data, future_policy_data)
             for model in self.models
         ]
-        return data.HealthData(
-            confirmed_cases=(
-                sum([p.confirmed_cases for p in predictions]) /
-                len(predictions)),
-            recovered=(
-                sum([p.recovered for p in predictions]) /
-                len(predictions)),
-            deaths=(
-                sum([p.deaths for p in predictions]) /
-                len(predictions)),
-        )
+        return data.HealthData.average(predictions)

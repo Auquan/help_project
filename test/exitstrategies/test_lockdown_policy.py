@@ -9,14 +9,14 @@ def test_lockdown_policy_initialization_from_dict():
     """Test LockdownPolicy attributes get correctly initialized from a dict."""
     policy = lockdown_policy.LockdownPolicy(**{'agriculture': 0.5})
     assert policy.agriculture == 0.5
-    assert policy.air_travel == 0.0
+    assert policy.air_travel == 1.0
 
 
 def test_lockdown_policy_initialization_from_kwargs():
     """Test LockdownPolicy attributes get correctly initialized from keyword args."""
     policy = lockdown_policy.LockdownPolicy(agriculture=0.5)
     assert policy.agriculture == 0.5
-    assert policy.air_travel == 0.0
+    assert policy.air_travel == 1.0
 
 
 def test_lockdown_policy_immutable():
