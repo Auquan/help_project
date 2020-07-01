@@ -2,6 +2,15 @@
 from help_project.src.disease_model import parameter
 
 
+def test_param_default():
+    """Test that a parameter's default attributes are set up correctly."""
+    param = parameter.Parameter(
+        name='a',
+        description='A parameter')
+    assert param.bounds is None
+    assert param.policy_dependent is False
+
+
 def test_config_parse():
     """Test that parse converts a list to a dict correctly."""
     config = parameter.ParameterConfig(
