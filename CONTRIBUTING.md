@@ -28,7 +28,8 @@ Here are some important resources:
 ## Pull Request Guidelines:
   * Please name your pull request appropriately as it will become the commit message.
   * Please leave a meaningful description on the Pull Request so the reviewers have better context when reviewing.
-  * Please assign reviewers once the CI checks have passed.
+  * Please assign reviewers once the CI checks have passed. + Please also tag the reviewers in a message on the general slack
+  * PRs must be reviewed by another member of the team before being checked by the maintainer team
   * Please use github commenting for code review discussions and resolve the issues before approving the pull request and merging it.
   * All pull requests must include counterpart tests, as long as the folder structure above is honored CI will automatically run them. Test can also be run locally using pytest
   * Commits should be squashed when merging a PR and no merge commits should be created.
