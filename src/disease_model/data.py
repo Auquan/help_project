@@ -5,8 +5,8 @@ import attr
 @attr.s
 class PopulationData:  # pylint: disable=too-few-public-methods
     """Struct for holding population data."""
-    population_size = attr.ib()
-    demographics = attr.ib()
+    population_size: int = attr.ib()
+    life_expectancy: float = attr.ib(default=72.0)
 
 
 @attr.s

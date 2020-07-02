@@ -58,8 +58,7 @@ class DataFetcher():
 
     def get_population_data(self, country: str):
         """Get the population data for a given country."""
-        return data.PopulationData(population_size=self.population[country],
-                                   demographics=None)
+        return data.PopulationData(population_size=self.population[country])
 
     def get_health_data(self, country: str):
         """Get the historical health data for a given country."""

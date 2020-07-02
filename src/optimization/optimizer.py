@@ -13,7 +13,7 @@ class Optimizer():
         self.config = config
         self.loss = loss
 
-    def optimize(self, health_model, economic_model, n_steps=None):
+    def optimize(self, population_data, health_model, economic_model, n_steps=None):
         """Run the optimization loop."""
         pareto_frontier = loss_function.ParetoFrontier()
 
@@ -25,7 +25,7 @@ class Optimizer():
                 health_output = health_model.run(policy)
                 economic_output = economic_model.get_economic_vector(policy)
 
-                loss = self.loss(health_output, economic_output)
+                loss = self.loss(population_data, health_output, economic_output)
                 self.record(policy, loss)
 
                 pareto_frontier.update(policy, loss)

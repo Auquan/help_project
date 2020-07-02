@@ -11,10 +11,7 @@ from help_project.src.exitstrategies import lockdown_policy
 
 def test_predict_with_no_cases():
     """Test that the predict function makes sense."""
-    population_data = data.PopulationData(
-        population_size=1e6,
-        demographics=None,
-    )
+    population_data = data.PopulationData(population_size=1e6)
     sir_model = sir.SIR()
     sir_model.set_params({
         'beta': 2,
@@ -47,10 +44,7 @@ def test_predict_with_no_cases():
 
 def test_predict_with_some_cases():
     """Test that the predict function makes sense."""
-    population_data = data.PopulationData(
-        population_size=1e6,
-        demographics=None,
-    )
+    population_data = data.PopulationData(population_size=1e6)
     sir_model = sir.SIR()
     sir_model.set_params({
         'beta': 2,
@@ -84,11 +78,7 @@ def test_predict_with_some_cases():
 @pytest.mark.slow
 def test_fit():
     """Test that the fit function obtains sensible params."""
-    population_data = data.PopulationData(
-        population_size=1e6,
-        demographics=None,
-    )
-
+    population_data = data.PopulationData(population_size=1e6)
     ground_truth_params = {
         'beta': 0.5,
         'gamma': 0.1,

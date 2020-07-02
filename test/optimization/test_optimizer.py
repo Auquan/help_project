@@ -32,7 +32,7 @@ class WeightedLoss(loss_function.LossFunction):
         self.health_weight = health_weight
         self.economic_weight = economic_weight
 
-    def compute(self, health_output, economic_output):
+    def compute(self, _, health_output, economic_output):
         """Compute the loss for a given health and economic output."""
         return (self.health_weight * health_output +
                 self.economic_weight * economic_output)
@@ -41,7 +41,7 @@ class WeightedLoss(loss_function.LossFunction):
 class MultiLoss(loss_function.LossFunction):
     """Multi objective Loss."""
 
-    def compute(self, health_output, economic_output):
+    def compute(self, _, health_output, economic_output):
         """Compute the loss for a given health and economic output."""
         return (health_output, economic_output)
 
@@ -55,6 +55,7 @@ def test_optimize_single_objective_exhaustive_search():
         loss=WeightedLoss(1, 1),
     )
     solution = opt.optimize(
+        population_data=None,
         health_model=MockHealthModel(),
         economic_model=MockEconomicModel(),
     )
@@ -70,6 +71,7 @@ def test_optimize_single_objective_random_search():
         loss=WeightedLoss(1, 1),
     )
     solution = opt.optimize(
+        population_data=None,
         health_model=MockHealthModel(),
         economic_model=MockEconomicModel(),
         n_steps=100,
@@ -85,6 +87,7 @@ def test_optimize_multi_objective_exhaustive_search():
         ),
         loss=MultiLoss())
     solution = opt.optimize(
+        population_data=None,
         health_model=MockHealthModel(),
         economic_model=MockEconomicModel(),
     )
