@@ -1,19 +1,35 @@
 """Module for loss functions."""
 from typing import Dict
+from typing import NewType
+from typing import Tuple
+from typing import Union
+import attr
+
 from help_project.src.disease_model import data
+from help_project.src.exitstrategies import lockdown_policy
 
 
-class LossFunction():
+LossValue = NewType('LossType', Union[float, Tuple[float, ...]])
+
+
+@attr.s(frozen=True)
+class Result:  # pylint: disable=too-few-public-methods
+    """Struct for holding a solution and a loss value."""
+    solution: lockdown_policy.LockdownTimeSeries = attr.ib()
+    loss: LossValue = attr.ib()
+
+
+class LossFunction:
     """A function to evaluate the 'badness' of a given outcome."""
 
     def compute(self,
                 population_data: data.PopulationData,
                 health_output: data.HealthData,
-                economic_output: Dict):
+                economic_output: Dict) -> LossValue:
         """Compute the loss for a given health and economic output."""
         raise NotImplementedError()
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self, *args, **kwargs) -> LossValue:
         """Shortcut to call the compute function."""
         return self.compute(*args, **kwargs)
 
@@ -24,22 +40,22 @@ class ParetoLoss(LossFunction):
     def compute(self,
                 population_data: data.PopulationData,
                 health_output: data.HealthData,
-                economic_output: Dict):
+                economic_output: Dict) -> LossValue:
         """Compute the loss as a tuple of health and economic losses."""
-        return (self.health_loss(population_data, health_output.deaths),
+        return (self.health_loss(population_data, health_output),
                 self.economic_loss(population_data, economic_output))
 
     @classmethod
     def health_loss(cls,
                     _: data.PopulationData,
-                    health_output: data.HealthData):
+                    health_output: data.HealthData) -> float:
         """Compute the health loss."""
         return sum(health_output.deaths)
 
     @classmethod
     def economic_loss(cls,
                       _: data.PopulationData,
-                      economic_output: Dict):
+                      economic_output: Dict) -> float:
         """Compute the economic loss."""
         return -sum(economic_output.values())
 
@@ -60,7 +76,7 @@ class WellbeingYears(LossFunction):  # pylint: disable=too-few-public-methods
     def compute(self,
                 population_data: data.PopulationData,
                 health_output: data.HealthData,
-                economic_output: Dict):
+                economic_output: Dict) -> LossValue:
         """Compute the loss."""
         # Assume mean age
         mean_age = population_data.life_expectancy / 2
@@ -74,7 +90,7 @@ class WellbeingYears(LossFunction):  # pylint: disable=too-few-public-methods
             self.years_left_to_live *
             self.life_satisfaction)
         economic_wellbys = sum(economic_output.values()) / self.qaly_cost
-        return health_wellbys - death_cost + economic_wellbys
+        return -(health_wellbys - death_cost + economic_wellbys)
 
 
 class ParetoFrontier():
@@ -83,26 +99,27 @@ class ParetoFrontier():
     def __init__(self):
         self.frontier = []
 
-    def update(self, point, loss):
+    def update(self, result: Result):
         """Update the pareto frontier given a new point and loss value.
 
         The frontier will remain unchanged if any point dominates the new given
         point. If the new point in turn, dominates any points previously in the
         frontier, these points will be removed."""
-        for pareto_point, pareto_loss in self.frontier:
-            if pareto_point == point:
+        for pareto_result in self.frontier:
+            if pareto_result.solution == result.solution:
                 return  # No update - new point already exists.
-            if ParetoFrontier.dominate(pareto_loss, loss):
+            if ParetoFrontier.dominate(pareto_result.loss, result.loss):
                 return  # No update - new loss is worse than some point
 
         # Update - keep only points that are not dominated by the new point
-        self.frontier = [(pareto_point, pareto_loss)
-                         for pareto_point, pareto_loss in self.frontier
-                         if not ParetoFrontier.dominate(loss, pareto_loss)]
-        self.frontier.append((point, loss))
+        self.frontier = [pareto_result
+                         for pareto_result in self.frontier
+                         if not ParetoFrontier.dominate(
+                             result.loss, pareto_result.loss)]
+        self.frontier.append(result)
 
     @classmethod
-    def dominate(cls, loss_a, loss_b):
+    def dominate(cls, loss_a: LossValue, loss_b: LossValue) -> bool:
         """Compute whether loss_a dominates loss_b."""
         try:
             return float(loss_a) < float(loss_b)

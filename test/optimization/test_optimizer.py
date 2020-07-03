@@ -1,3 +1,4 @@
+"""Test the optimizer module."""
 from help_project.src.optimization import lockdown_config
 from help_project.src.optimization import loss_function
 from help_project.src.optimization import optimizer
@@ -59,7 +60,9 @@ def test_optimize_single_objective_exhaustive_search():
         health_model=MockHealthModel(),
         economic_model=MockEconomicModel(),
     )
-    assert solution == [({'strategy': 2}, 4)]
+    assert solution == [
+        loss_function.Result(solution={'strategy': 2}, loss=4),
+    ]
 
 
 def test_optimize_single_objective_random_search():
@@ -76,7 +79,9 @@ def test_optimize_single_objective_random_search():
         economic_model=MockEconomicModel(),
         n_steps=100,
     )
-    assert solution == [({'strategy': 2}, 4)]
+    assert solution == [
+        loss_function.Result(solution={'strategy': 2}, loss=4),
+    ]
 
 
 def test_optimize_multi_objective_exhaustive_search():
@@ -91,6 +96,8 @@ def test_optimize_multi_objective_exhaustive_search():
         health_model=MockHealthModel(),
         economic_model=MockEconomicModel(),
     )
-    assert solution == [({'strategy': 1}, (1, 5)),
-                        ({'strategy': 2}, (2, 2)),
-                        ({'strategy': 3}, (5, 1))]
+    assert solution == [
+        loss_function.Result(solution={'strategy': 1}, loss=(1, 5)),
+        loss_function.Result(solution={'strategy': 2}, loss=(2, 2)),
+        loss_function.Result(solution={'strategy': 3}, loss=(5, 1)),
+    ]

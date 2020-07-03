@@ -1,19 +1,34 @@
 """Module for handling the optimization loop."""
 import itertools
 import random
+from typing import Iterator
+from typing import List
+from typing import Optional
 
+from help_project.src.disease_model import data
+from help_project.src.disease_model import base_model as health
+from help_project.src.economic_model.models import basic_lockdown_model as econ
 from help_project.src.optimization import loss_function
 from help_project.src.optimization import lockdown_config
+from help_project.src.exitstrategies import lockdown_policy
 
 
-class Optimizer():
+class Optimizer:
     """Main optimization class."""
 
-    def __init__(self, config, loss):
+    def __init__(self,
+                 config: lockdown_config.LockdownConfig,
+                 loss: loss_function.LossFunction):
+        """Initialize the optimizer."""
         self.config = config
         self.loss = loss
+        self.results = []
 
-    def optimize(self, population_data, health_model, economic_model, n_steps=None):
+    def optimize(self,
+                 population_data: data.PopulationData,
+                 health_model: health.BaseDiseaseModel,
+                 economic_model: econ.EconomicLockdownModel,
+                 n_steps: Optional[int] = None) -> List[loss_function.Result]:
         """Run the optimization loop."""
         pareto_frontier = loss_function.ParetoFrontier()
 
@@ -26,9 +41,9 @@ class Optimizer():
                 economic_output = economic_model.get_economic_vector(policy)
 
                 loss = self.loss(population_data, health_output, economic_output)
-                self.record(policy, loss)
-
-                pareto_frontier.update(policy, loss)
+                result = loss_function.Result(solution=policy, loss=loss)
+                pareto_frontier.update(result)
+                self.record(result)
                 step += 1
                 if n_steps is not None and step >= n_steps:
                     break
@@ -37,47 +52,42 @@ class Optimizer():
 
         return pareto_frontier.frontier
 
-    def propose(self):
+    def propose(self) -> lockdown_policy.LockdownTimeSeries:
         """Get a new policy proposal from the config."""
         raise NotImplementedError()
 
-    def record(self, proposal, loss):
-        """Record the loss for the given proposal."""
-        raise NotImplementedError()
+    def record(self, result: loss_function.Result):
+        """Possibly record the obtained result."""
+        self.results.append(result)
 
 
-class RandomSearch(Optimizer):
+class RandomSearch(Optimizer):  # pylint: disable=too-few-public-methods
     """Optimizer that tries possibilities randomly."""
 
-    def propose(self):
+    def propose(self) -> lockdown_policy.LockdownTimeSeries:
         """Get a new proposal."""
         sample_kwargs = self.config.sample()
         return lockdown_config.LockdownConfig.generate_lockdown_policy(
             sample_kwargs)
 
-    def record(self, proposal, loss):
-        """Do nothing."""
-        return
-
 
 class ExhaustiveSearch(Optimizer):
     """Optimizer that tries all possibilities."""
 
-    def __init__(self, config, loss):
+    def __init__(self,
+                 config: lockdown_config.LockdownConfig,
+                 loss: loss_function.LossFunction):
+        """Initialize the search."""
         super().__init__(config, loss)
         self.proposals = self.generate_proposals()
-        self.records = []
 
-    def propose(self):
+    def propose(self) -> lockdown_policy.LockdownTimeSeries:
         """Get a new proposal."""
         return lockdown_config.LockdownConfig.generate_lockdown_policy(
             next(self.proposals))
 
-    def record(self, proposal, loss):
-        """Store result for the given proposal for possible later use."""
-        self.records.append((proposal, loss))
-
-    def generate_proposals(self):
+    def generate_proposals(self) -> Iterator[
+            lockdown_policy.LockdownTimeSeries]:
         """Generator for proposals."""
         range_args = []
         option_args = []

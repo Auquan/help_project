@@ -1,3 +1,4 @@
+"""Test the lockdown config module."""
 from help_project.src.optimization import lockdown_config
 
 
