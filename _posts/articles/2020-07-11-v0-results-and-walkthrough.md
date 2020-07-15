@@ -1,4 +1,14 @@
-# HELP Project V0
+---
+layout: article
+categories: articles
+Title: V0 Release Walkthrough
+Excerpt: "This is a code and text walkthrough of the V0 HELP model, containing working health, economic, lockdown and optimization modules"
+tags: []
+image:
+  feature:
+  teaser: articles/whitepaper.png
+
+---
 
 On the 29th June, the HELP project released the V0 of our lockdown impact model. This fully functional release contains 4 modules that are interconnected and work together to produce the estimated impact for a specific country and intervention pair. Users can select a country to investigate and will automatically be shown the best lockdown policy(ies) for that country over the time period.
 
