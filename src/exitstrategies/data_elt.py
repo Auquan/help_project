@@ -35,8 +35,7 @@ class DataELT():
 
                 policy_applications = []
                 if dates[0] > start_date:
-                    default_policy = lockdown_policy.LockdownPolicy(
-                        **dict(zip(file_df.index, [0] * len(file_df.index))))
+                    default_policy = lockdown_policy.LockdownPolicy()
                     policy_applications.append(lockdown_policy.LockdownPolicyApplication(
                         policy=default_policy,
                         start=start_date,

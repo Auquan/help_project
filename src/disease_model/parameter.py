@@ -6,12 +6,13 @@ from typing import Tuple
 import attr
 
 
-@attr.s
+@attr.s(frozen=True)
 class Parameter:  # pylint: disable=too-few-public-methods
     """Struct for holding a parameter."""
     name: str = attr.ib()
     description: str = attr.ib()
-    bounds: Optional[Tuple[float, float]] = attr.ib()
+    bounds: Optional[Tuple[float, float]] = attr.ib(default=None)
+    policy_dependent: bool = attr.ib(default=False)
 
 
 class ParameterConfig:
