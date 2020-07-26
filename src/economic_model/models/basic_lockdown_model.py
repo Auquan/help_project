@@ -6,6 +6,7 @@ import attr
 import numpy as np
 from help_project.src.economic_model.utils import gva_data
 from help_project.src.exitstrategies import lockdown_policy as lockdown
+from help_project.src.economic_model.models.economy_simulation import simulate_economy
 
 
 class EconomicLockdownModel():
