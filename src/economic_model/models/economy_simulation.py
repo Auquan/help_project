@@ -79,7 +79,7 @@ def simulate_economy(shocks_to_labor_supply=None):
                   'rounds': 500,}
 
     # Cleaning input output table for india
-    india_input_output = pd.read_csv('india_input.csv')
+    india_input_output = pd.read_csv(os.path.dirname(__file__) + '/../data/india_input.csv')
     india_input_output.columns = india_input_output.iloc[0]
     india_input_output = india_input_output.iloc[1:]
     india_input_output = india_input_output.set_index('To: (sector in column)')
@@ -121,13 +121,18 @@ def simulate_economy(shocks_to_labor_supply=None):
     labor_alphas = [labor_dict, labor_requirement]
     for i in range(number_sectors):
         agent_parameters[i]['output_input_ratio']=output_input_ratio[i]
-
-
+    shocks_array=[]
+    for i in range(len(india_input_output)-2):
+        if india_input_output.index[i] in shocks_to_labor_supply.keys():
+            shocks_array.append(0.5 + 0.5*(shocks_to_labor_supply[india_input_output.index[i]]))
+        else:
+            shocks_array.append(1)
+    shocks_to_labor_supply = shocks_array
     if shocks_to_labor_supply is None:
         shocks_to_labor_supply = [random.uniform(0.5,1) for i in range(number_sectors)]
     shocks =  main(parameters,agent_parameters,labor_alphas, shocks_to_labor_supply)
-    GVAs=[]
+    GVAs={}
     for i in range(number_sectors):
-        GVAs.append(shocks[i]*india_input_output.iloc[-1,i])
+        GVAs[india_input_output.index[i]]=(shocks[i]*india_input_output.iloc[-1,i])
     return GVAs
 

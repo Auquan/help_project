@@ -228,11 +228,10 @@ class CompartmentModel(base_model.BaseDiseaseModel):
             population_data, past_health_data, params)
 
         prediction = integrate.solve_ivp(
-            self.differential_equations,
+            fun=lambda t, y: self.differential_equations(t, y, tuple(self.parameter_config.flatten(params))),
             t_span=(0, forecast_length),
             t_eval=np.arange(1, forecast_length + 1),
-            y0=initial_state,
-            args=self.parameter_config.flatten(params))
+            y0=initial_state)
 
         return self.format_output(prediction.y)
 

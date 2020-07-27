@@ -1,25 +1,25 @@
-lockdown_sector,sector
-agriculture,
-chemical,Manufacturing
-commerce,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
-construction,Construction
-education,Other services
-fin_prof_services,"Financial, Real Estate and Professional Services"
-food_consumables,
-healthcare,Other services
-hospitality_tourism,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
-manufacturing,Manufacturing
-mining,Mining and quarrying
-media,Other services
-energy,"Electricity, gas, water supply & other utility services"
-telecom,"Transport, storage, communication & services related to broadcasting"
-public_admin,"Public Administration Defence, and Other Services"
-supply_chain_ship,"Transport, storage, communication & services related to broadcasting"
-forest_husb_fish,
-textiles,"Trade, Hotels, Transport, Communication and Services Related to Broadcasting"
-transportation ,"Transport, storage, communication & services related to broadcasting"
-utilities,"Electricity, gas, water supply & other utility services"
-open_border,"Transport, storage, communication & services related to broadcasting"
-air_travel,"Transport, storage, communication & services related to broadcasting"
-roal_rail_travel,"Transport, storage, communication & services related to broadcasting"
-public_transport,"Transport, storage, communication & services related to broadcasting"
+lockdown_sector,sector,id
+agriculture,"TTL_01T03: Agriculture, forestry and fishing",0
+chemical,TTL_20T21: Chemicals and pharmaceutical products,9
+commerce,TTL_69T82: Other business sector services,30
+construction,TTL_41T43: Construction,21
+education,TTL_85: Education,32
+fin_prof_services,TTL_64T66: Financial and insurance activities,28
+food_consumables,"TTL_10T12: Food products, beverages and tobacco",4
+healthcare,TTL_86T88: Human health and social work,33
+hospitality_tourism,"TTL_90T96: Arts, entertainment, recreation and other service activities",34
+manufacturing,TTL_24: Manufacture of basic metals,12
+mining,TTL_05T06: Mining and extraction of energy producing products,1
+media,"TTL_58T60: Publishing, audiovisual and broadcasting activities",25
+energy,TTL_05T06: Mining and extraction of energy producing products,1
+telecom,TTL_61: Telecommunications,26
+public_admin,TTL_84: Public administration and defence,31
+supply_chain_ship,TTL_49T53: Transportation and storage,23
+forest_husb_fish,"TTL_01T03: Agriculture, forestry and fishing",0
+textiles,"TTL_13T15: Textiles, wearing apparel, leather and related products",5
+transportation ,TTL_49T53: Transportation and storage,23
+utilities,"TTL_35T39: Electricity, gas, water supply, sewerage, waste and remediation services",20
+open_border,TTL_49T53: Transportation and storage,23
+air_travel,TTL_49T53: Transportation and storage,23
+roal_rail_travel,TTL_49T53: Transportation and storage,23
+public_transport,TTL_49T53: Transportation and storage,23

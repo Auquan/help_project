@@ -75,7 +75,7 @@ class SEIR(compartment_model.CompartmentModel):
         # pylint: disable=invalid-name,too-many-locals
         s, e, i, r, _ = compartments
         population = s + e + i + r
-        parameters = self.parameter_config.parse(args)
+        parameters = self.parameter_config.parse(args[0])
         beta = parameters['beta']
         gamma = parameters['gamma']
         sigma = parameters['sigma']
